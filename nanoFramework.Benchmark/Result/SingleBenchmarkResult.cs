@@ -36,16 +36,16 @@ namespace nanoFramework.Benchmark.Result
             return MethodResults[index].GetMeanExecutionTime();
         }
 
-        [Display("Max")]
-        public string MaxExecutionTime(int index)
-        {
-            return MethodResults[index].GetMaxExecutionTime();
-        }
-
         [Display("Min")]
         public string MinExecutionTime(int index)
         {
             return MethodResults[index].GetMinExecutionTime();
+        }
+
+        [Display("Max")]
+        public string MaxExecutionTime(int index)
+        {
+            return MethodResults[index].GetMaxExecutionTime();
         }
 
         // TODO: Move to helper class
