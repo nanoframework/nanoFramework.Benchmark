@@ -53,7 +53,7 @@ namespace nanoFramework.Benchmark
                 throw new InvalidOperationException();
 
             #region SetupRunner
-            var itterationCount = SettingsHelper.GetItterationCount(classType);
+            var iterationCount = SettingsHelper.GetItterationCount(classType);
             var logger = SettingsHelper.GetLoggerIfExists(classType);
             var parsers = SettingsHelper.GetResultParser(classType);
             #endregion
@@ -72,14 +72,14 @@ namespace nanoFramework.Benchmark
             var methodResults = new ArrayList();
             foreach (MethodInfo method in ReflectionHelpers.GetBenchmarkMethods(allMethods, logger))
             {
-                var result = Run(classToInvokeMethodOn, method, itterationCount);
+                var result = Run(classToInvokeMethodOn, method, iterationCount);
                 methodResults.Add(new MethodResult(method.Name, result));
             }
 
             var benchmarkResult = new SingleBenchmarkResult(
                 ArrayListHelper.ConvertFromArrayListToMethodResultArray(methodResults), 
                 classType.Name, 
-                itterationCount);
+                iterationCount);
 
             InvokeParses(benchmarkResult, parsers, logger);
         }
