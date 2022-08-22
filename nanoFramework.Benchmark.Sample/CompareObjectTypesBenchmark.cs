@@ -57,18 +57,6 @@ namespace nanoFramework.Benchmark.Sample
             }
         }
 
-        /*[Benchmark]
-        public void CompareUsingTypeofSwitch()
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                object obja = array.GetValue(i);
-                var typea = obja.GetType();
-
-                CompareUsingTypeofSwitch(typea);
-            }
-        }*/
-
         void CompareUsingString(Type typea)
         {
             switch (typea.FullName)
