@@ -5,7 +5,7 @@ namespace nanoFramework.Benchmark.Sample
 {
     [CsvParser]
     [ConsoleParser]
-    [ItterationCount(100)]
+    [IterationCount(100)]
     public class CompareObjectTypesBenchmark
     {
         object[] array;

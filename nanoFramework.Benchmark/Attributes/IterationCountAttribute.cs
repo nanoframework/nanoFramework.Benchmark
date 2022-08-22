@@ -3,13 +3,13 @@
 namespace nanoFramework.Benchmark.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public sealed class ItterationCountAttribute : Attribute
+    public sealed class IterationCountAttribute : Attribute
     {
-        public const ushort DefaultItterationCount = 10;
+        public const ushort DefaultIterationCount = 10;
 
         public int Count { get; }
 
-        public ItterationCountAttribute(int count)
+        public IterationCountAttribute(int count)
         {
             Count = count;
         }

@@ -31,13 +31,13 @@ namespace nanoFramework.Benchmark.Helpers
 
         internal static int GetItterationCount(Type benchmarkClass)
         {
-            var attribute = ReflectionHelpers.GetFirstOrDefaultAttribute(benchmarkClass, typeof(ItterationCountAttribute));
-            if (attribute != null && attribute is ItterationCountAttribute itterationCountAttribute)
+            var attribute = ReflectionHelpers.GetFirstOrDefaultAttribute(benchmarkClass, typeof(IterationCountAttribute));
+            if (attribute != null && attribute is IterationCountAttribute itterationCountAttribute)
             {
                 return itterationCountAttribute.Count;
             }
 
-            return ItterationCountAttribute.DefaultItterationCount;
+            return IterationCountAttribute.DefaultIterationCount;
         }
 
         internal static IResultParser[] GetResultParser(Type classType)

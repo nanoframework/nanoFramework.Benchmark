@@ -5,7 +5,7 @@ using nanoFramework.Logging.Debug;
 
 namespace nanoFramework.Benchmark.Sample
 {
-    [ItterationCount(11)]
+    [IterationCount(11)]
     [DebugLogger]
     [CsvParser]
     [ConsoleParser]
