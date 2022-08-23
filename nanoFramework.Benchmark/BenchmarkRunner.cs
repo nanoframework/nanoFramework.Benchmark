@@ -25,6 +25,11 @@ namespace nanoFramework.Benchmark
                     continue;
                 }
 
+                if (!type.IsPublic)
+                {
+                    continue;
+                }
+
                 if (type.IsInterface)
                 {
                     continue;
