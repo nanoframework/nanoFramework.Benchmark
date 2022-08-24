@@ -4,6 +4,7 @@ using nanoFramework.Benchmark.Parser;
 using nanoFramework.Benchmark.Result;
 using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace nanoFramework.Benchmark
@@ -96,12 +97,13 @@ namespace nanoFramework.Benchmark
             // There is a check if method has no parameters before
             var parameters = new object[0];
 
+            var watch = new Stopwatch();
             for (var i = 0; i < itterationCount; i++)
             {
-                var startTime = Environment.TickCount64;
+                watch.Restart();
                 method.Invoke(classToInvokeMethodOn, parameters);
-                var endTime = Environment.TickCount64;
-                resultCollection[i] = new SingleTestResult(TimeSpan.FromMilliseconds(endTime - startTime));
+                watch.Stop();
+                resultCollection[i] = new SingleTestResult(watch.Elapsed);
             }
 
             return resultCollection;
