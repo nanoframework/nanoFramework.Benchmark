@@ -15,11 +15,17 @@
     <RootNamespace>nanoFramework.Benchmark</RootNamespace>
     <AssemblyName>nanoFramework.Benchmark</AssemblyName>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>nanoFramework.Benchmark</PackageId>
-    <Version>0.0.1</Version>
-    <Authors>nanoFramework</Authors>
-    <Company>nanoFramework</Company>
+    <DocumentationFile>bin\$(Configuration)\nanoFramework.Benchmark.xml</DocumentationFile>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
@@ -45,6 +51,7 @@
     <Compile Include="Result\SingleBenchmarkResult.cs" />
     <Compile Include="Result\SingleTestResult.cs" />
     <Compile Include="SetupAttribute.cs" />
+    <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib">
