@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace nanoFramework.Benchmark.Result
 {
-    public class MethodResult
+    class MethodResult
     {
         private string _methodName;
         private string _meanExecutionTime;

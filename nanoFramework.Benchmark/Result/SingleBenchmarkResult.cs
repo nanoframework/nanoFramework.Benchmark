@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace nanoFramework.Benchmark.Result
 {
-    public class SingleBenchmarkResult
+    class SingleBenchmarkResult
     {
         public MethodResult[] MethodResults { get; }
         public string ClassName { get; }
@@ -46,25 +46,6 @@ namespace nanoFramework.Benchmark.Result
         public string MaxExecutionTime(int index)
         {
             return MethodResults[index].GetMaxExecutionTime();
-        }
-
-        // TODO: Move to helper class
-        internal static MethodInfo[] GetDataToDisplay()
-        {
-            var tempList = new ArrayList();
-            var allMethods = typeof(SingleBenchmarkResult).GetMethods(BindingFlags.Public | BindingFlags.Instance);
-            foreach (var method in allMethods)
-            {
-                var displayAttrib = ReflectionHelpers.GetFirstOrDefaultAttribute(method, typeof(DisplayAttribute));
-                if (displayAttrib == null)
-                {
-                    continue;
-                }
-
-                tempList.Add(method);
-            }
-
-            return ArrayListHelper.ConvertFromArrayListToMethodInfoArray(tempList);
         }
     }
 }

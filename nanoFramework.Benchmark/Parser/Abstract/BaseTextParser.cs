@@ -7,7 +7,7 @@ using System.Text;
 
 namespace nanoFramework.Benchmark.Parser.Abstract
 {
-    internal abstract class BaseTextParser : IResultParser
+    internal abstract class BaseTextParser : BaseParser
     {
         protected abstract string GetParserName(SingleBenchmarkResult benchmarkResult);
         protected abstract string GetHeader(MethodInfo[] dataToDisplay);
@@ -57,13 +57,13 @@ namespace nanoFramework.Benchmark.Parser.Abstract
             throw new InvalidOperationException();
         }
 
-        public virtual void Parse(SingleBenchmarkResult benchmarkResult)
+        public override void Parse(SingleBenchmarkResult benchmarkResult)
         {
             PrintLine(string.Empty);
             PrintLine(string.Empty);
             PrintLine(GetParserName(benchmarkResult));
 
-            var dataToDisplay = SingleBenchmarkResult.GetDataToDisplay();
+            var dataToDisplay = GetMethodsToDisplay();
             PrintLine(GetHeader(dataToDisplay));
 
             for (int i = 0; i < benchmarkResult.MethodResults.Length; i++)
