@@ -123,6 +123,10 @@ BenchmarkAttribute is used to specify which method should be invoked as benchmar
 
 Note, that benchmark method must be public and without parameters.
 
+#### Baseline
+
+BaselineAttribute is used to specify which method should be considered as baseline for calculation. Add new colum "Ratio" to output.
+
 ### Parsers
 
 You can specify parsers as attributes on class. Every parsers is invoked after benchmark run, so you can get results in multiple formats.  

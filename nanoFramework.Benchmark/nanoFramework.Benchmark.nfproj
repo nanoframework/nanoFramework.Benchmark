@@ -30,11 +30,14 @@
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
     <Compile Include="Attributes\Abstract\ParserAttribute.cs" />
+    <Compile Include="Attributes\BaselineAttribute.cs" />
     <Compile Include="Attributes\CsvParserAttribute.cs" />
     <Compile Include="Attributes\ConsoleParserAttribute.cs" />
     <Compile Include="BenchmarkAttribute.cs" />
+    <Compile Include="BenchmarkMethodInfo.cs" />
     <Compile Include="BenchmarkRunner.cs" />
     <Compile Include="Attributes\DebugLoggerAttribute.cs" />
+    <Compile Include="Helpers\ArrayHelper.cs" />
     <Compile Include="Helpers\ArrayListHelper.cs" />
     <Compile Include="Helpers\SettingsHelper.cs" />
     <Compile Include="Helpers\StringArrayExtensions.cs" />

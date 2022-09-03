@@ -10,12 +10,14 @@ namespace nanoFramework.Benchmark.Result
         public MethodResult[] MethodResults { get; }
         public string ClassName { get; }
         public int ItterationCount { get; }
+        public bool ShouldCalculateRatio { get; }
 
-        public SingleBenchmarkResult(MethodResult[] methodResults, string className, int itterationCount)
+        public SingleBenchmarkResult(MethodResult[] methodResults, string className, int itterationCount, bool shouldCalculateRatio)
         {
             MethodResults = methodResults;
             ClassName = className;
             ItterationCount = itterationCount;
+            ShouldCalculateRatio = shouldCalculateRatio;
         }
 
         [Display("MethodName")]
@@ -36,6 +38,21 @@ namespace nanoFramework.Benchmark.Result
             return MethodResults[index].GetMeanExecutionTime();
         }
 
+        [Display("Ratio")] // TODO: Only if attribute is there
+        public string Ratio(int index)
+        {
+            var isBaseline = MethodResults[index].IsBaseline;
+            if (isBaseline)
+            {
+                return "1.0";
+            }
+
+            var baseLineResult = ArrayHelper.FindBaseLine(MethodResults).GetMeanExecutionTimeRaw();
+            var currentResult = MethodResults[index].GetMeanExecutionTimeRaw();
+
+            return $"{((float)currentResult.Ticks / baseLineResult.Ticks):N4}";
+        }
+
         [Display("Min")]
         public string MinExecutionTime(int index)
         {
@@ -48,8 +65,7 @@ namespace nanoFramework.Benchmark.Result
             return MethodResults[index].GetMaxExecutionTime();
         }
 
-        // TODO: Move to helper class
-        internal static MethodInfo[] GetDataToDisplay()
+        internal MethodInfo[] GetDataToDisplay()
         {
             var tempList = new ArrayList();
             var allMethods = typeof(SingleBenchmarkResult).GetMethods(BindingFlags.Public | BindingFlags.Instance);
@@ -57,6 +73,11 @@ namespace nanoFramework.Benchmark.Result
             {
                 var displayAttrib = ReflectionHelpers.GetFirstOrDefaultAttribute(method, typeof(DisplayAttribute));
                 if (displayAttrib == null)
+                {
+                    continue;
+                }
+
+                if (method.Name == nameof(Ratio) && !ShouldCalculateRatio)
                 {
                     continue;
                 }

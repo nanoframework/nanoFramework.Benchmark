@@ -12,13 +12,16 @@ namespace nanoFramework.Benchmark.Result
         private string _meanExecutionTime;
         private string _maxExecutionTime;
         private string _minExecutionTime;
+        private TimeSpan _meanExecutionTimeRaw;
 
         public SingleTestResult[] SingleTestResults { get; }
-        
-        public MethodResult(string methodName, SingleTestResult[] singleTestResults)
+        internal bool IsBaseline { get; }
+
+        public MethodResult(string methodName, SingleTestResult[] singleTestResults, bool isBaseline)
         {
             _methodName = methodName;
             SingleTestResults = singleTestResults;
+            IsBaseline = isBaseline;
         }
 
         internal string GetMethodName()
@@ -27,6 +30,16 @@ namespace nanoFramework.Benchmark.Result
         }
 
         internal string GetMeanExecutionTime()
+        {
+            if (string.IsNullOrEmpty(_meanExecutionTime))
+            {
+                _meanExecutionTime = $"{GetMeanExecutionTimeRaw().TotalMilliseconds} ms";
+            }
+
+            return _meanExecutionTime;
+        }
+
+        internal TimeSpan GetMeanExecutionTimeRaw()
         {
             if (string.IsNullOrEmpty(_meanExecutionTime))
             {
@@ -44,10 +57,10 @@ namespace nanoFramework.Benchmark.Result
                     elemetsCount++;
                 }
 
-                _meanExecutionTime = $"{TimeSpan.FromTicks(sumTicks / elemetsCount).TotalMilliseconds} ms";
+                _meanExecutionTimeRaw = TimeSpan.FromTicks(sumTicks / elemetsCount);
             }
 
-            return _meanExecutionTime;
+            return _meanExecutionTimeRaw;
         }
 
         internal string GetMinExecutionTime()

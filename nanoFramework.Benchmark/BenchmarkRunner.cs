@@ -76,16 +76,23 @@ namespace nanoFramework.Benchmark
             setupMethod?.Invoke(classToInvokeMethodOn, null);
 
             var methodResults = new ArrayList();
-            foreach (MethodInfo method in ReflectionHelpers.GetBenchmarkMethods(allMethods, logger))
+            var hasBaseline = false;
+            foreach (BenchmarkMethodInfo method in ReflectionHelpers.GetBenchmarkMethods(allMethods, logger))
             {
-                var result = Run(classToInvokeMethodOn, method, iterationCount);
-                methodResults.Add(new MethodResult(method.Name, result));
+                var result = Run(classToInvokeMethodOn, method.MethodInfo, iterationCount);
+                methodResults.Add(new MethodResult(method.MethodInfo.Name, result, method.IsBaseline));
+
+                if (!hasBaseline && method.IsBaseline)
+                {
+                    hasBaseline = true;
+                }
             }
 
             var benchmarkResult = new SingleBenchmarkResult(
                 ArrayListHelper.ConvertFromArrayListToMethodResultArray(methodResults), 
                 classType.Name, 
-                iterationCount);
+                iterationCount,
+                hasBaseline);
 
             InvokeParses(benchmarkResult, parsers, logger);
         }

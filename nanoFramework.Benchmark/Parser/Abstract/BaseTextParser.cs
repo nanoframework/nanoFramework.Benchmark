@@ -63,7 +63,7 @@ namespace nanoFramework.Benchmark.Parser.Abstract
             PrintLine(string.Empty);
             PrintLine(GetParserName(benchmarkResult));
 
-            var dataToDisplay = SingleBenchmarkResult.GetDataToDisplay();
+            var dataToDisplay = benchmarkResult.GetDataToDisplay();
             PrintLine(GetHeader(dataToDisplay));
 
             for (int i = 0; i < benchmarkResult.MethodResults.Length; i++)

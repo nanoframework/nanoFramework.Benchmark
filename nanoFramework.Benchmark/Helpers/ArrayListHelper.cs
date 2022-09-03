@@ -30,6 +30,18 @@ namespace nanoFramework.Benchmark.Helpers
             return result;
         }
 
+
+        internal static BenchmarkMethodInfo[] ConvertFromArrayListToBenchmarkMethodInfoArray(ArrayList arrayList)
+        {
+            var result = new BenchmarkMethodInfo[arrayList.Count];
+            for (int i = 0; i < arrayList.Count; i++)
+            {
+                result[i] = (BenchmarkMethodInfo)arrayList[i];
+            }
+
+            return result;
+        }
+
         internal static IResultParser[] ConvertFromArrayListToIResultParserArray(ArrayList arrayList)
         {
             var result = new IResultParser[arrayList.Count];

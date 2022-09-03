@@ -22,7 +22,7 @@ namespace nanoFramework.Benchmark.Parser
 
         private int[] CalculateColumnSize(SingleBenchmarkResult benchmarkResult)
         {
-            var dataToDisplay = SingleBenchmarkResult.GetDataToDisplay();
+            var dataToDisplay = benchmarkResult.GetDataToDisplay();
             int[] columnSizes = new int[dataToDisplay.Length];
             for (int i = 0; i < dataToDisplay.Length; i++)
             {
