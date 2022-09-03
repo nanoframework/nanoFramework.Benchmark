@@ -6,7 +6,7 @@ namespace nanoFramework.Benchmark.Parser
     /// <summary>
     /// Base interface for reult parsers.
     /// </summary>
-    public interface IResultParser
+    interface IResultParser
     {
         void Parse(SingleBenchmarkResult benchmarkResult);
     }

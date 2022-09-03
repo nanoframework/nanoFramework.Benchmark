@@ -11,10 +11,8 @@ namespace nanoFramework.Benchmark.Attributes.Abstract
     {
         private IResultParser parser;
 
-        /// <summary>
-        /// Gets instance of parser.
-        /// </summary>
-        public IResultParser ResultParser
+        // Invoked via reflection!
+        internal IResultParser ResultParser
         {
             get
             {
@@ -27,9 +25,6 @@ namespace nanoFramework.Benchmark.Attributes.Abstract
             }
         }
 
-        /// <summary>
-        /// Creates new instance of parser.
-        /// </summary>
-        public abstract IResultParser CreateNewResultParser { get; }
+        internal abstract IResultParser CreateNewResultParser { get; }
     }
 }

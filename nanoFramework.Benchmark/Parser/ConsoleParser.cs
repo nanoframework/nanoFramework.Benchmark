@@ -1,12 +1,11 @@
 ﻿using nanoFramework.Benchmark.Parser.Abstract;
 using nanoFramework.Benchmark.Result;
-using System;
 using System.Reflection;
 using System.Text;
 
 namespace nanoFramework.Benchmark.Parser
 {
-    internal class ConsoleParser : BaseTextParser, IResultParser
+    internal class ConsoleParser : BaseTextParser
     {
         private const string ConsoleTableSeparator = "|";
         private readonly object lockObject = new();

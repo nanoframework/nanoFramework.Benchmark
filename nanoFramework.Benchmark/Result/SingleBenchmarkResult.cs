@@ -1,7 +1,4 @@
-﻿using nanoFramework.Benchmark.Helpers;
-using nanoFramework.Benchmark.Result.Attributes;
-using System.Collections;
-using System.Reflection;
+﻿using nanoFramework.Benchmark.Result.Attributes;
 
 namespace nanoFramework.Benchmark.Result
 {

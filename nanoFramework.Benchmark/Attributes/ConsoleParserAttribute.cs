@@ -10,10 +10,6 @@ namespace nanoFramework.Benchmark.Attributes
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class ConsoleParserAttribute : ParserAttribute
     {
-
-        /// <summary>
-        /// Creates new instance of Console parser. 
-        /// </summary>
-        public override IResultParser CreateNewResultParser => new ConsoleParser();
+        internal override IResultParser CreateNewResultParser => new ConsoleParser();
     }
 }
