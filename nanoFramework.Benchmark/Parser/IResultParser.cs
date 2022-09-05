@@ -4,7 +4,7 @@ using System;
 namespace nanoFramework.Benchmark.Parser
 {
     /// <summary>
-    /// Base interface for reult parsers.
+    /// Base interface for result parsers.
     /// </summary>
     interface IResultParser
     {
