@@ -125,7 +125,7 @@ Note, that benchmark method must be public and without parameters.
 
 #### Baseline
 
-BaselineAttribute is used to specify which method should be considered as baseline for calculation. Add new colum "Ratio" to output.
+BaselineAttribute is used to specify which method should be considered as baseline for calculation. Add new column "Ratio" to output.
 
 ### Parsers
 
