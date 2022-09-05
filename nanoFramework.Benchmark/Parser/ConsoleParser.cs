@@ -1,15 +1,14 @@
 ﻿using nanoFramework.Benchmark.Parser.Abstract;
 using nanoFramework.Benchmark.Result;
-using System;
 using System.Reflection;
 using System.Text;
 
 namespace nanoFramework.Benchmark.Parser
 {
-    internal class ConsoleParser : BaseTextParser, IResultParser
+    internal class ConsoleParser : BaseTextParser
     {
         private const string ConsoleTableSeparator = "|";
-        private object lockObject = new();
+        private readonly object lockObject = new();
         private int[] columnsSize;
         public override void Parse(SingleBenchmarkResult benchmarkResult)
         {
@@ -22,7 +21,7 @@ namespace nanoFramework.Benchmark.Parser
 
         private int[] CalculateColumnSize(SingleBenchmarkResult benchmarkResult)
         {
-            var dataToDisplay = SingleBenchmarkResult.GetDataToDisplay();
+            var dataToDisplay = GetMethodsToDisplay();
             int[] columnSizes = new int[dataToDisplay.Length];
             for (int i = 0; i < dataToDisplay.Length; i++)
             {

@@ -3,11 +3,16 @@ using System;
 
 namespace nanoFramework.Benchmark.Attributes.Abstract
 {
+    /// <summary>
+    /// Base class for parser.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public abstract class ParserAttribute : Attribute
     {
-        private static IResultParser parser;
-        public IResultParser ResultParser
+        private IResultParser parser;
+
+        // Invoked via reflection!
+        internal IResultParser ResultParser
         {
             get
             {
@@ -20,6 +25,6 @@ namespace nanoFramework.Benchmark.Attributes.Abstract
             }
         }
 
-        public abstract IResultParser CreateNewResultParser { get; }
+        internal abstract IResultParser CreateNewResultParser { get; }
     }
 }

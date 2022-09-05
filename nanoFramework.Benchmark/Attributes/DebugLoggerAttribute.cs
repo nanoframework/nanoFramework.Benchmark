@@ -5,12 +5,19 @@ using System;
 
 namespace nanoFramework.Benchmark.Attributes
 {
+    /// <summary>
+    /// Adds debugg logger. 
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class DebugLoggerAttribute : LoggerAttribute
     {
         const string DebugLoggerCategory = "DebugLogger";
 
-        private static ILogger logger;
+        private ILogger logger;
+
+        /// <summary>
+        /// Gets instance of logger.
+        /// </summary>
         public override ILogger Logger
         {
             get

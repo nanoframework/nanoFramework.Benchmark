@@ -2,7 +2,7 @@
 
 namespace nanoFramework.Benchmark.Result
 {
-    public sealed class SingleTestResult
+    sealed class SingleTestResult
     {
         public TimeSpan ElapsedTime { get; }
 

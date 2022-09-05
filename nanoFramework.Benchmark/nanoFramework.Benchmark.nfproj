@@ -40,6 +40,7 @@
     <Compile Include="Helpers\StringArrayExtensions.cs" />
     <Compile Include="Attributes\IterationCountAttribute.cs" />
     <Compile Include="Attributes\Abstract\LoggerAttribute.cs" />
+    <Compile Include="Parser\Abstract\BaseParser.cs" />
     <Compile Include="Parser\Abstract\BaseTextParser.cs" />
     <Compile Include="Parser\ConsoleParser.cs" />
     <Compile Include="Parser\CsvParser.cs" />
