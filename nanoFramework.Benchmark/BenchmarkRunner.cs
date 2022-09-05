@@ -9,6 +9,9 @@ using System.Reflection;
 
 namespace nanoFramework.Benchmark
 {
+    /// <summary>
+    /// Main runner class.
+    /// </summary>
     public static class BenchmarkRunner
     {
         private static string[] ExcludedClassNamesFromBenchmarks =
