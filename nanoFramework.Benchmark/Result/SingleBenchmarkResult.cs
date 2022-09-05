@@ -2,7 +2,7 @@
 
 namespace nanoFramework.Benchmark.Result
 {
-    class SingleBenchmarkResult
+    private class SingleBenchmarkResult
     {
         public MethodResult[] MethodResults { get; }
         public string ClassName { get; }
