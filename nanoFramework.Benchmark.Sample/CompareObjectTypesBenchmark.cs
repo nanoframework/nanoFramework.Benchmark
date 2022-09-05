@@ -14,7 +14,7 @@ namespace nanoFramework.Benchmark.Sample
         public void SetUp()
         {
             array = new object[] {
-                        (int)42,
+                        42,
                         (byte)42,
                         "This is a super string",
                         (ulong)42,

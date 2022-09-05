@@ -16,6 +16,10 @@ namespace nanoFramework.Benchmark
             "Program"
         };
 
+        /// <summary>
+        /// Runs all benchmarks from assembly. 
+        /// </summary>
+        /// <param name="assembly">Assembly with benchmarks.</param>
         public static void Run(Assembly assembly)
         {
             var classes = assembly.GetTypes();
@@ -50,6 +54,11 @@ namespace nanoFramework.Benchmark
             }
         }
 
+        /// <summary>
+        /// Runs all benchmarks from class.
+        /// </summary>
+        /// <param name="classType">Class with benchmarks.</param>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void RunClass(Type classType)
         {
             if (!classType.IsClass)

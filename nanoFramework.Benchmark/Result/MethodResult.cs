@@ -1,12 +1,8 @@
-﻿using nanoFramework.Benchmark.Helpers;
-using nanoFramework.Benchmark.Result.Attributes;
-using System;
-using System.Collections;
-using System.Reflection;
+﻿using System;
 
 namespace nanoFramework.Benchmark.Result
 {
-    public class MethodResult
+    internal class MethodResult
     {
         private string _methodName;
         private string _meanExecutionTime;

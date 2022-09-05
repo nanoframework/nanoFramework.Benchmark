@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace nanoFramework.Benchmark.Result
 {
-    public class SingleBenchmarkResult
+    internal class SingleBenchmarkResult
     {
         public MethodResult[] MethodResults { get; }
         public string ClassName { get; }
@@ -38,7 +38,7 @@ namespace nanoFramework.Benchmark.Result
             return MethodResults[index].GetMeanExecutionTime();
         }
 
-        [Display("Ratio")] // TODO: Only if attribute is there
+        [Display("Ratio")]
         public string Ratio(int index)
         {
             var isBaseline = MethodResults[index].IsBaseline;
@@ -65,6 +65,10 @@ namespace nanoFramework.Benchmark.Result
             return MethodResults[index].GetMaxExecutionTime();
         }
 
+        /// <summary>
+        /// Gets methods with data based on configuration.
+        /// </summary>
+        /// <returns>All methods which will be used in parsers.</returns>
         internal MethodInfo[] GetDataToDisplay()
         {
             var tempList = new ArrayList();

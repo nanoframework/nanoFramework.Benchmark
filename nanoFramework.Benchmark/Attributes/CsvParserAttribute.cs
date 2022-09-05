@@ -4,9 +4,12 @@ using System;
 
 namespace nanoFramework.Benchmark.Attributes
 {
+    /// <summary>
+    /// Adds parser that prints benchmark outputs in console in csv format.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class CsvParserAttribute : ParserAttribute
     {
-        public override IResultParser CreateNewResultParser => new CsvParser();
+        internal override IResultParser CreateNewResultParser => new CsvParser();
     }
 }

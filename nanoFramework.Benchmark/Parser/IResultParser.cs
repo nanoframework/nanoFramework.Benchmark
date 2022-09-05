@@ -3,7 +3,10 @@ using System;
 
 namespace nanoFramework.Benchmark.Parser
 {
-    public interface IResultParser
+    /// <summary>
+    /// Base interface for result parsers.
+    /// </summary>
+    interface IResultParser
     {
         void Parse(SingleBenchmarkResult benchmarkResult);
     }

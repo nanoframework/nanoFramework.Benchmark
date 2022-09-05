@@ -5,7 +5,7 @@ using System.Text;
 
 namespace nanoFramework.Benchmark.Parser
 {
-    internal class CsvParser : BaseTextParser, IResultParser
+    internal class CsvParser : BaseTextParser
     {
         private const char ValuesSeparator = ';';
 
