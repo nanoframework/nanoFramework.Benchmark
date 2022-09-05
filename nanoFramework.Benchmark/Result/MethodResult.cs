@@ -2,7 +2,7 @@
 
 namespace nanoFramework.Benchmark.Result
 {
-    class MethodResult
+    private class MethodResult
     {
         private string _methodName;
         private string _meanExecutionTime;
