@@ -3,18 +3,19 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using nanoFramework.Benchmark.Parser.Abstract;
-using nanoFramework.Benchmark.Result;
 using System.Reflection;
 using System.Text;
+using nanoFramework.Benchmark.Parser.Abstract;
+using nanoFramework.Benchmark.Result;
 
 namespace nanoFramework.Benchmark.Parser
 {
     internal class ConsoleParser : BaseTextParser
     {
         private const string ConsoleTableSeparator = "|";
-        private readonly object lockObject = new();
+        private readonly object lockObject = new ();
         private int[] columnsSize;
+
         public override void Parse(SingleBenchmarkResult benchmarkResult)
         {
             lock (lockObject) 
@@ -22,20 +23,6 @@ namespace nanoFramework.Benchmark.Parser
                 columnsSize = CalculateColumnSize(benchmarkResult);
                 base.Parse(benchmarkResult);
             }
-        }
-
-        private int[] CalculateColumnSize(SingleBenchmarkResult benchmarkResult)
-        {
-            var dataToDisplay = benchmarkResult.GetDataToDisplay();
-            int[] columnSizes = new int[dataToDisplay.Length];
-            for (int i = 0; i < dataToDisplay.Length; i++)
-            {
-                var column = dataToDisplay[i];
-                var header = GetHeaderFromAttribute(column);
-                columnSizes[i] = CalculateColumnSize(column, header, benchmarkResult);
-            }
-
-            return columnSizes;
         }
 
         private static int CalculateColumnSize(MethodInfo method, string header, SingleBenchmarkResult benchmarkResult)
@@ -52,6 +39,20 @@ namespace nanoFramework.Benchmark.Parser
             }
 
             return size;
+        }
+
+        private int[] CalculateColumnSize(SingleBenchmarkResult benchmarkResult)
+        {
+            var dataToDisplay = benchmarkResult.GetDataToDisplay();
+            int[] columnSizes = new int[dataToDisplay.Length];
+            for (int i = 0; i < dataToDisplay.Length; i++)
+            {
+                var column = dataToDisplay[i];
+                var header = GetHeaderFromAttribute(column);
+                columnSizes[i] = CalculateColumnSize(column, header, benchmarkResult);
+            }
+
+            return columnSizes;
         }
 
         protected override string GetParserName(SingleBenchmarkResult benchmarkResult)
@@ -76,11 +77,13 @@ namespace nanoFramework.Benchmark.Parser
             var headerLength = stringBuilder.Length;
             stringBuilder.AppendLine();
             stringBuilder.Append($"{ConsoleTableSeparator} ");
+
             // -4 characters = '| ' + ' |'
             for (int i = 0; i < headerLength - 4; i++)
             {
                 stringBuilder.Append("-");
             }
+
             stringBuilder.Append($" {ConsoleTableSeparator}");
 
             return stringBuilder.ToString();

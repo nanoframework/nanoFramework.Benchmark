@@ -3,26 +3,17 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using nanoFramework.Benchmark.Helpers;
-using nanoFramework.Benchmark.Result;
-using nanoFramework.Benchmark.Result.Attributes;
 using System;
 using System.Reflection;
 using System.Text;
+using nanoFramework.Benchmark.Helpers;
+using nanoFramework.Benchmark.Result;
+using nanoFramework.Benchmark.Result.Attributes;
 
 namespace nanoFramework.Benchmark.Parser.Abstract
 {
     internal abstract class BaseTextParser : IResultParser
     {
-        protected abstract string GetParserName(SingleBenchmarkResult benchmarkResult);
-        protected abstract string GetHeader(MethodInfo[] dataToDisplay);
-        protected abstract string GetRow(SingleBenchmarkResult item, MethodInfo[] dataToDisplay, int rowIndex);
-
-        protected virtual void PrintLine(string value)
-        {
-            Console.WriteLine(value);
-        }
-
         protected static string GetHeaderFromAttribute(MethodInfo methodInfo)
         {
             // At this point all passed MethodsInfo should be properties and should have Display attribute
@@ -40,12 +31,6 @@ namespace nanoFramework.Benchmark.Parser.Abstract
             return builder.ToString();
         }
 
-        protected string GetDataFromDataMethod(SingleBenchmarkResult item, MethodInfo dataMethod, int rowIndex)
-        {
-            var parameters = GetParametersForDataMethod(dataMethod, rowIndex);
-            return (string)dataMethod.Invoke(item, parameters);
-        }
-
         protected static object[] GetParametersForDataMethod(MethodInfo dataMethod, int rowIndex)
         {
             var parametersCount = dataMethod.GetParameters().Length;
@@ -60,6 +45,23 @@ namespace nanoFramework.Benchmark.Parser.Abstract
             }
 
             throw new InvalidOperationException();
+        }
+
+        protected abstract string GetParserName(SingleBenchmarkResult benchmarkResult);
+
+        protected abstract string GetHeader(MethodInfo[] dataToDisplay);
+
+        protected abstract string GetRow(SingleBenchmarkResult item, MethodInfo[] dataToDisplay, int rowIndex);
+
+        protected virtual void PrintLine(string value)
+        {
+            Console.WriteLine(value);
+        }
+
+        protected string GetDataFromDataMethod(SingleBenchmarkResult item, MethodInfo dataMethod, int rowIndex)
+        {
+            var parameters = GetParametersForDataMethod(dataMethod, rowIndex);
+            return (string)dataMethod.Invoke(item, parameters);
         }
 
         public virtual void Parse(SingleBenchmarkResult benchmarkResult)

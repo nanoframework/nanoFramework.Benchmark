@@ -7,7 +7,7 @@ using System;
 
 namespace nanoFramework.Benchmark.Result
 {
-    sealed class SingleTestResult
+    internal sealed class SingleTestResult
     {
         public TimeSpan ElapsedTime { get; }
 

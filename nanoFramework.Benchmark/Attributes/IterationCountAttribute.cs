@@ -24,7 +24,7 @@ namespace nanoFramework.Benchmark.Attributes
         public int Count { get; }
 
         /// <summary>
-        /// Create the instance of IterationCountAttribute.
+        /// Initializes a new instance of the <see cref="IterationCountAttribute" /> class.
         /// </summary>
         /// <param name="count">Samples count.</param>
         public IterationCountAttribute(int count)

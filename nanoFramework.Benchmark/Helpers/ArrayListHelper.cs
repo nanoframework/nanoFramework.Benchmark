@@ -3,11 +3,10 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using nanoFramework.Benchmark.Parser;
-using nanoFramework.Benchmark.Result;
-using System;
 using System.Collections;
 using System.Reflection;
+using nanoFramework.Benchmark.Parser;
+using nanoFramework.Benchmark.Result;
 
 namespace nanoFramework.Benchmark.Helpers
 {
@@ -34,7 +33,6 @@ namespace nanoFramework.Benchmark.Helpers
 
             return result;
         }
-
 
         internal static BenchmarkMethodInfo[] ConvertFromArrayListToBenchmarkMethodInfoArray(ArrayList arrayList)
         {

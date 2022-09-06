@@ -17,6 +17,7 @@ namespace nanoFramework.Benchmark.Result
         private TimeSpan _meanExecutionTimeRaw;
 
         public SingleTestResult[] SingleTestResults { get; }
+
         internal bool IsBaseline { get; }
 
         public MethodResult(string methodName, SingleTestResult[] singleTestResults, bool isBaseline)

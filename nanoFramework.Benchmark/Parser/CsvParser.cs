@@ -3,10 +3,10 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using nanoFramework.Benchmark.Parser.Abstract;
-using nanoFramework.Benchmark.Result;
 using System.Reflection;
 using System.Text;
+using nanoFramework.Benchmark.Parser.Abstract;
+using nanoFramework.Benchmark.Result;
 
 namespace nanoFramework.Benchmark.Parser
 {

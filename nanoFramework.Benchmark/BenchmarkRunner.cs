@@ -3,14 +3,14 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using Microsoft.Extensions.Logging;
-using nanoFramework.Benchmark.Helpers;
-using nanoFramework.Benchmark.Parser;
-using nanoFramework.Benchmark.Result;
 using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
+using nanoFramework.Benchmark.Helpers;
+using nanoFramework.Benchmark.Parser;
+using nanoFramework.Benchmark.Result;
 
 namespace nanoFramework.Benchmark
 {
@@ -19,7 +19,7 @@ namespace nanoFramework.Benchmark
     /// </summary>
     public static class BenchmarkRunner
     {
-        private static string[] ExcludedClassNamesFromBenchmarks =
+        private static string[] excludedClassNamesFromBenchmarks =
         {
             "Program"
         };
@@ -53,7 +53,7 @@ namespace nanoFramework.Benchmark
                     continue;
                 }
                 
-                if (ExcludedClassNamesFromBenchmarks.Contains(type.Name))
+                if (excludedClassNamesFromBenchmarks.Contains(type.Name))
                 {
                     continue;
                 }
@@ -66,20 +66,22 @@ namespace nanoFramework.Benchmark
         /// Runs all benchmarks from class.
         /// </summary>
         /// <param name="classType">Class with benchmarks.</param>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidOperationException">Throws when type is not class or class is abstract.</exception>
         public static void RunClass(Type classType)
         {
             if (!classType.IsClass)
+            {
                 throw new InvalidOperationException();
+            }
 
             if (classType.IsAbstract)
+            {
                 throw new InvalidOperationException();
+            }
 
-            #region SetupRunner
             var iterationCount = SettingsHelper.GetItterationCount(classType);
             var logger = SettingsHelper.GetLoggerIfExists(classType);
             var parsers = SettingsHelper.GetResultParser(classType);
-            #endregion
 
             var classToInvokeMethodOn = ReflectionHelpers.CreateObjectViaReflection(classType);
             if (classToInvokeMethodOn == null)
@@ -102,7 +104,8 @@ namespace nanoFramework.Benchmark
 
             var methodResultsAsArray = ArrayListHelper.ConvertFromArrayListToMethodResultArray(methodResults);
             var hasBaseline = ArrayHelper.FindBaseLine(methodResultsAsArray) != null;
-            var benchmarkResult = new SingleBenchmarkResult(methodResultsAsArray, 
+            var benchmarkResult = new SingleBenchmarkResult(
+                methodResultsAsArray, 
                 classType.Name, 
                 iterationCount,
                 hasBaseline);
@@ -129,14 +132,14 @@ namespace nanoFramework.Benchmark
             return resultCollection;
         }
 
-        private static void InvokeParses(SingleBenchmarkResult benchmarkResult, IResultParser[] Parsers, ILogger logger)
+        private static void InvokeParses(SingleBenchmarkResult benchmarkResult, IResultParser[] parsers, ILogger logger)
         {
             if (benchmarkResult.MethodResults.Length == 0)
             {
                 logger?.LogWarning($"No result found from {benchmarkResult.ClassName} class.");
             }
 
-            foreach (var parser in Parsers)
+            foreach (var parser in parsers)
             {
                 parser.Parse(benchmarkResult);
             }

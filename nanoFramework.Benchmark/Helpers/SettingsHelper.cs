@@ -3,16 +3,17 @@
 // See LICENSE file in the project root for full license information.
 ////
 
+using System;
 using Microsoft.Extensions.Logging;
 using nanoFramework.Benchmark.Attributes;
 using nanoFramework.Benchmark.Parser;
-using System;
 
 namespace nanoFramework.Benchmark.Helpers
 {
     internal static class SettingsHelper
     {
         private static IResultParser[] defaultParsers;
+
         private static IResultParser[] DefaultParsers
         {
             get
@@ -28,6 +29,7 @@ namespace nanoFramework.Benchmark.Helpers
                 return defaultParsers;
             }
         }
+
         internal static ILogger GetLoggerIfExists(Type classType)
         {
             return (ILogger)ReflectionHelpers.GetObjectInstanceFromAttributesIfExists(classType, typeof(ILogger));
