@@ -3,17 +3,17 @@
 // See LICENSE file in the project root for full license information.
 ////
 
+using System;
 using Microsoft.Extensions.Logging;
 using nanoFramework.Benchmark.Attributes;
 using nanoFramework.Benchmark.Parser;
-using System;
-using System.Reflection;
 
 namespace nanoFramework.Benchmark.Helpers
 {
-    internal class SettingsHelper
+    internal static class SettingsHelper
     {
         private static IResultParser[] defaultParsers;
+
         private static IResultParser[] DefaultParsers
         {
             get
@@ -29,6 +29,7 @@ namespace nanoFramework.Benchmark.Helpers
                 return defaultParsers;
             }
         }
+
         internal static ILogger GetLoggerIfExists(Type classType)
         {
             return (ILogger)ReflectionHelpers.GetObjectInstanceFromAttributesIfExists(classType, typeof(ILogger));
@@ -37,7 +38,7 @@ namespace nanoFramework.Benchmark.Helpers
         internal static int GetItterationCount(Type benchmarkClass)
         {
             var attribute = ReflectionHelpers.GetFirstOrDefaultAttribute(benchmarkClass, typeof(IterationCountAttribute));
-            if (attribute != null && attribute is IterationCountAttribute itterationCountAttribute)
+            if (attribute is IterationCountAttribute itterationCountAttribute)
             {
                 return itterationCountAttribute.Count;
             }

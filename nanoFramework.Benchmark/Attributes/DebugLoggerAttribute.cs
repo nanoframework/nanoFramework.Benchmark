@@ -3,10 +3,10 @@
 // See LICENSE file in the project root for full license information.
 ////
 
+using System;
 using Microsoft.Extensions.Logging;
 using nanoFramework.Benchmark.Attributes.Abstract;
 using nanoFramework.Logging.Debug;
-using System;
 
 namespace nanoFramework.Benchmark.Attributes
 {
@@ -16,7 +16,7 @@ namespace nanoFramework.Benchmark.Attributes
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class DebugLoggerAttribute : LoggerAttribute
     {
-        const string DebugLoggerCategory = "DebugLogger";
+        private const string DebugLoggerCategory = "DebugLogger";
 
         private ILogger logger;
 

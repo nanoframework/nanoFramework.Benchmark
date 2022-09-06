@@ -3,8 +3,8 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using nanoFramework.Benchmark.Parser;
 using System;
+using nanoFramework.Benchmark.Parser;
 
 namespace nanoFramework.Benchmark.Attributes.Abstract
 {

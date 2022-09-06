@@ -3,17 +3,17 @@
 // See LICENSE file in the project root for full license information.
 ////
 
-using Microsoft.Extensions.Logging;
-using nanoFramework.Benchmark.Attributes;
 using System;
 using System.Collections;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
+using nanoFramework.Benchmark.Attributes;
 
 namespace nanoFramework.Benchmark.Helpers
 {
     internal static class ReflectionHelpers
     {
-        private static string[] ExcludedMethodsFromBenchmarks =
+        private static string[] excludedMethodsFromBenchmarks =
         {
             "ToString",
             "GetType",
@@ -117,7 +117,7 @@ namespace nanoFramework.Benchmark.Helpers
                 return true;
             }
 
-            if (ExcludedMethodsFromBenchmarks.Contains(method.Name))
+            if (excludedMethodsFromBenchmarks.Contains(method.Name))
             {
                 return true;
             }
