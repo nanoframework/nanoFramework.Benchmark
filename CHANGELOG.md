@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/nanoFramework.Benchmark/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.4...HEAD)
+[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.8...HEAD)
+
+**Implemented enhancements:**
+
+- Add Baseline feature [\#3](https://github.com/nanoframework/nanoFramework.Benchmark/pull/3)
+
+## [v1.0.8](https://github.com/nanoframework/nanoFramework.Benchmark/tree/v1.0.8) (2022-09-05)
+
+[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.4...v1.0.8)
 
 **Documentation and other chores:**
 
