@@ -12,7 +12,7 @@ using System.Text;
 
 namespace nanoFramework.Benchmark.Parser.Abstract
 {
-    internal abstract class BaseTextParser : BaseParser
+    internal abstract class BaseTextParser : IResultParser
     {
         protected abstract string GetParserName(SingleBenchmarkResult benchmarkResult);
         protected abstract string GetHeader(MethodInfo[] dataToDisplay);
@@ -62,13 +62,13 @@ namespace nanoFramework.Benchmark.Parser.Abstract
             throw new InvalidOperationException();
         }
 
-        public override void Parse(SingleBenchmarkResult benchmarkResult)
+        public virtual void Parse(SingleBenchmarkResult benchmarkResult)
         {
             PrintLine(string.Empty);
             PrintLine(string.Empty);
             PrintLine(GetParserName(benchmarkResult));
 
-            var dataToDisplay = GetMethodsToDisplay();
+            var dataToDisplay = benchmarkResult.GetDataToDisplay();
             PrintLine(GetHeader(dataToDisplay));
 
             for (int i = 0; i < benchmarkResult.MethodResults.Length; i++)

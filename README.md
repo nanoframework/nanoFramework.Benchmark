@@ -123,6 +123,18 @@ BenchmarkAttribute is used to specify which method should be invoked as benchmar
 
 Note, that benchmark method must be public and without parameters.
 
+#### Baseline
+
+BaselineAttribute is used to specify which method should be considered as baseline for calculation. Add new column "Ratio" to output.
+```text
+Console export: CompareObjectTypesBenchmark benchmark class.
+| MethodName                 | ItterationCount | Mean   | Ratio  | Min   | Max   |
+| ------------------------------------------------------------------------------ |
+| CompareByString            | 100             | 10 ms  | 1.0    | 10 ms | 10 ms |
+| CompareUsingTypeofIf       | 100             | 5.9 ms | 0.5900 | 0 ms  | 10 ms |
+| CompareUsingTypeofIfReturn | 100             | 5.5 ms | 0.5500 | 0 ms  | 10 ms |
+```
+
 ### Parsers
 
 You can specify parsers as attributes on class. Every parsers is invoked after benchmark run, so you can get results in multiple formats.  

@@ -4,6 +4,7 @@
 ////
 
 using Microsoft.Extensions.Logging;
+using nanoFramework.Benchmark.Attributes;
 using System;
 using System.Collections;
 using System.Reflection;
@@ -130,7 +131,7 @@ namespace nanoFramework.Benchmark.Helpers
             return false;
         }
 
-        internal static MethodInfo[] GetBenchmarkMethods(MethodInfo[] methodInfos, ILogger logger)
+        internal static BenchmarkMethodInfo[] GetBenchmarkMethods(MethodInfo[] methodInfos, ILogger logger)
         {
             var returnList = new ArrayList();
             foreach (var method in methodInfos)
@@ -153,10 +154,23 @@ namespace nanoFramework.Benchmark.Helpers
                     continue;
                 }
 
-                returnList.Add(method);
+                var isMethodBaseline = CheckIfMethodIsBenchmark(method);
+                var benchmarkMethodInfo = new BenchmarkMethodInfo(method, isMethodBaseline);
+                returnList.Add(benchmarkMethodInfo);
             }
 
-            return ArrayListHelper.ConvertFromArrayListToMethodInfoArray(returnList);
+            return ArrayListHelper.ConvertFromArrayListToBenchmarkMethodInfoArray(returnList);
+        }
+
+        private static bool CheckIfMethodIsBenchmark(MethodInfo method)
+        {
+            var baselineAttrib = GetFirstOrDefaultAttribute(method, typeof(BaselineAttribute));
+            if (baselineAttrib == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         internal static object GetObjectInstanceFromPropertyIfExists(object classObject, Type typeToGet)

@@ -27,6 +27,7 @@ namespace nanoFramework.Benchmark.Sample
                     };
         }
 
+        [Baseline]
         [Benchmark]
         public void CompareByString()
         {
