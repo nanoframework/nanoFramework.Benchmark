@@ -22,7 +22,7 @@ namespace nanoFramework.Benchmark.Sample
         [Setup]
         public void Setup()
         {
-            random = new Random();
+            random = new Random(DateTime.UtcNow.Millisecond);
         }
 
         [Benchmark]

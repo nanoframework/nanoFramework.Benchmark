@@ -7,11 +7,10 @@ using Microsoft.Extensions.Logging;
 using nanoFramework.Benchmark.Attributes;
 using nanoFramework.Benchmark.Parser;
 using System;
-using System.Reflection;
 
 namespace nanoFramework.Benchmark.Helpers
 {
-    internal class SettingsHelper
+    internal static class SettingsHelper
     {
         private static IResultParser[] defaultParsers;
         private static IResultParser[] DefaultParsers
@@ -37,7 +36,7 @@ namespace nanoFramework.Benchmark.Helpers
         internal static int GetItterationCount(Type benchmarkClass)
         {
             var attribute = ReflectionHelpers.GetFirstOrDefaultAttribute(benchmarkClass, typeof(IterationCountAttribute));
-            if (attribute != null && attribute is IterationCountAttribute itterationCountAttribute)
+            if (attribute is IterationCountAttribute itterationCountAttribute)
             {
                 return itterationCountAttribute.Count;
             }

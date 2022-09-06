@@ -9,7 +9,8 @@ namespace nanoFramework.Benchmark.Result
 {
     internal class MethodResult
     {
-        private string _methodName;
+        private readonly string _methodName;
+
         private string _meanExecutionTime;
         private string _maxExecutionTime;
         private string _minExecutionTime;
