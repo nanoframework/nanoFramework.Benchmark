@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using nanoFramework.Benchmark.Attributes;
-using nanoFramework.Logging.Debug;
 
 namespace nanoFramework.Benchmark.Sample
 {
