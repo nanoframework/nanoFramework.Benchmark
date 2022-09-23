@@ -10,9 +10,9 @@
       },
       "nanoFramework.Logging": {
         "type": "Direct",
-        "requested": "[1.1.17, 1.1.17]",
-        "resolved": "1.1.17",
-        "contentHash": "kVtm8FKC4rFFQoDs7B1Ub6OhJLI03xIdOqOaz4xkYRaj7W3xxtLPHJQgKWyLWePbMLAct3CgrFFn8oSlJcoDpw=="
+        "requested": "[1.1.19, 1.1.19]",
+        "resolved": "1.1.19",
+        "contentHash": "i4J3lz/8wUiPq+75AitHSa9Zdk10TztaxSZdiNGPmBeORQim2GFtmY2SSpWYPlJ189lK05n/M3Ecl0XBySw4vA=="
       },
       "nanoFramework.Runtime.Native": {
         "type": "Direct",
@@ -40,9 +40,9 @@
       },
       "Nerdbank.GitVersioning": {
         "type": "Direct",
-        "requested": "[3.5.109, 3.5.109]",
-        "resolved": "3.5.109",
-        "contentHash": "tKA1XJ5U2Ytk+u2/5sGNa04Pw6z9noYmqbpmHpjvbwJTtIalqsQjnwT4RQKSDTTIznHBbKxzv3HVh8QD28Qk+g=="
+        "requested": "[3.5.113, 3.5.113]",
+        "resolved": "3.5.113",
+        "contentHash": "4fBSMkqhi410qlkjPm+Mxfk8iO3C7dmgdVS7ljsfVO21WEzZCHP1VCOqB6rlOPfPidR/oxX+/Do/I7meCAz+Jg=="
       },
       "StyleCop.MSBuild": {
         "type": "Direct",
