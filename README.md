@@ -91,6 +91,34 @@ Console export: CompareObjectTypesBenchmark benchmark class.
 | CompareUsingTypeofIfReturn | 10              | 5 ms  | 0 ms  | 10 ms |
 ```
 
+## How to run .NET **nanoFramework** Benchmark
+
+Benchmark methods must be run on real hardware.  (Note - You may received an OutOfMemory exception if you run many iterations and your hardware doesn't have enough memory.)
+
+1. Create a benchmark project using the "Blank Application (nanoFramework)" template
+ 
+ ![image](https://user-images.githubusercontent.com/1071761/196533818-1eb4377d-9f7e-4231-8cb2-20d398388700.png)
+
+2. Update the Program.cs file to the following:
+
+```csharp
+public class Program
+{
+    public static void Main()
+    {
+        BenchmarkRunner.Run(typeof(IAssemblyHandler).Assembly);
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+public interface IAssemblyHandler { }
+```
+
+3. Add the nanoFramework.Benchmark nuget package to the project
+
+![image](https://user-images.githubusercontent.com/1071761/196534403-cfd3ea10-d8d7-44cb-bfbd-70baf8423d19.png)
+
+5. Lastly attach a nanoFramework device and run the benchmark project
+
 ## Attributes
 
 ### Class
