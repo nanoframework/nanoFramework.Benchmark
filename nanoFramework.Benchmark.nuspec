@@ -19,10 +19,10 @@
     <tags>nanoFramework C# csharp netmf netnf benchmark</tags>
     <dependencies>
       <dependency id="nanoFramework.CoreLibrary" version="1.12.0" />
-      <dependency id="nanoFramework.Logging" version="1.1.37" />
+      <dependency id="nanoFramework.Logging" version="1.1.41" />
       <dependency id="nanoFramework.System.Collections" version="1.4.0" />
-      <dependency id="nanoFramework.System.Diagnostics.Stopwatch" version="1.2.82" />
-      <dependency id="nanoFramework.System.Text" version="1.2.17" />
+      <dependency id="nanoFramework.System.Diagnostics.Stopwatch" version="1.2.141" />
+      <dependency id="nanoFramework.System.Text" version="1.2.20" />
     </dependencies>
   </metadata>
   <files>
