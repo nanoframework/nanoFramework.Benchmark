@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/nanoFramework.Benchmark/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.58...HEAD)
+[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.60...HEAD)
+
+**Documentation and other chores:**
+
+- Update 1 NuGet dependencies [\#32](https://github.com/nanoframework/nanoFramework.Benchmark/pull/32)
+
+## [v1.0.60](https://github.com/nanoframework/nanoFramework.Benchmark/tree/v1.0.60) (2023-11-09)
+
+[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.58...v1.0.60)
 
 **Documentation and other chores:**
 
