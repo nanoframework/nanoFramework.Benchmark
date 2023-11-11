@@ -14,14 +14,14 @@ namespace nanoFramework.Benchmark.Result
     {
         public MethodResult[] MethodResults { get; }
         public string ClassName { get; }
-        public int ItterationCount { get; }
+        public int IterationCount { get; }
         public bool ShouldCalculateRatio { get; }
 
-        public SingleBenchmarkResult(MethodResult[] methodResults, string className, int itterationCount, bool shouldCalculateRatio)
+        public SingleBenchmarkResult(MethodResult[] methodResults, string className, int iterationCount, bool shouldCalculateRatio)
         {
             MethodResults = methodResults;
             ClassName = className;
-            ItterationCount = itterationCount;
+            IterationCount = iterationCount;
             ShouldCalculateRatio = shouldCalculateRatio;
         }
 
@@ -31,10 +31,10 @@ namespace nanoFramework.Benchmark.Result
             return MethodResults[index].GetMethodName();
         }
 
-        [Display("ItterationCount")]
-        public string ItterationCountMethod()
+        [Display("IterationCount")]
+        public string IterationCountMethod()
         {
-            return ItterationCount.ToString();
+            return IterationCount.ToString();
         }
 
         [Display("Mean")]

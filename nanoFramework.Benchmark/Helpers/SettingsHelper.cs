@@ -35,12 +35,12 @@ namespace nanoFramework.Benchmark.Helpers
             return (ILogger)ReflectionHelpers.GetObjectInstanceFromAttributesIfExists(classType, typeof(ILogger));
         }
 
-        internal static int GetItterationCount(Type benchmarkClass)
+        internal static int GetIterationCount(Type benchmarkClass)
         {
             var attribute = ReflectionHelpers.GetFirstOrDefaultAttribute(benchmarkClass, typeof(IterationCountAttribute));
-            if (attribute is IterationCountAttribute itterationCountAttribute)
+            if (attribute is IterationCountAttribute iterationCountAttribute)
             {
-                return itterationCountAttribute.Count;
+                return iterationCountAttribute.Count;
             }
 
             return IterationCountAttribute.DefaultIterationCount;
