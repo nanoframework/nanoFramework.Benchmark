@@ -7,6 +7,12 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Benchmark", "
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.Benchmark.Sample", "nanoFramework.Benchmark.Sample\nanoFramework.Benchmark.Sample.nfproj", "{2F7D544D-0538-427D-A2D0-54B77C3F5F0A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6FBDDBB-A7EC-4ADD-BCAD-54E18B3541A6}"
+	ProjectSection(SolutionItems) = preProject
+		nanoFramework.Benchmark.nuspec = nanoFramework.Benchmark.nuspec
+		version.json = version.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
