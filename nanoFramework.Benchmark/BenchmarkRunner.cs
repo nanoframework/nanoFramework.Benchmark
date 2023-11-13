@@ -79,7 +79,7 @@ namespace nanoFramework.Benchmark
                 throw new InvalidOperationException();
             }
 
-            var iterationCount = SettingsHelper.GetItterationCount(classType);
+            var iterationCount = SettingsHelper.GetIterationCount(classType);
             var logger = SettingsHelper.GetLoggerIfExists(classType);
             var parsers = SettingsHelper.GetResultParser(classType);
 
@@ -113,15 +113,15 @@ namespace nanoFramework.Benchmark
             InvokeParses(benchmarkResult, parsers, logger);
         }
 
-        private static SingleTestResult[] Run(object classToInvokeMethodOn, MethodInfo method, int itterationCount)
+        private static SingleTestResult[] Run(object classToInvokeMethodOn, MethodInfo method, int iterationCount)
         {
-            var resultCollection = new SingleTestResult[itterationCount];
+            var resultCollection = new SingleTestResult[iterationCount];
 
             // There is a check if method has no parameters before
             var parameters = new object[0];
 
             var watch = new Stopwatch();
-            for (var i = 0; i < itterationCount; i++)
+            for (var i = 0; i < iterationCount; i++)
             {
                 watch.Restart();
                 method.Invoke(classToInvokeMethodOn, parameters);
