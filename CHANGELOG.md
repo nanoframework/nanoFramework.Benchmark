@@ -2,7 +2,19 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/nanoFramework.Benchmark/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.60...HEAD)
+[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.62...HEAD)
+
+**Implemented enhancements:**
+
+- Fixing spelling of "iteration" [\#34](https://github.com/nanoframework/nanoFramework.Benchmark/pull/34)
+
+**Documentation and other chores:**
+
+- Update 1 NuGet dependencies [\#35](https://github.com/nanoframework/nanoFramework.Benchmark/pull/35)
+
+## [v1.0.62](https://github.com/nanoframework/nanoFramework.Benchmark/tree/v1.0.62) (2023-11-10)
+
+[Full Changelog](https://github.com/nanoframework/nanoFramework.Benchmark/compare/v1.0.60...v1.0.62)
 
 **Documentation and other chores:**
 
