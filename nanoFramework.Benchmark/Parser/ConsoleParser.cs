@@ -18,7 +18,7 @@ namespace nanoFramework.Benchmark.Parser
 
         public override void Parse(SingleBenchmarkResult benchmarkResult)
         {
-            lock (lockObject) 
+            lock (lockObject)
             {
                 columnsSize = CalculateColumnSize(benchmarkResult);
                 base.Parse(benchmarkResult);
