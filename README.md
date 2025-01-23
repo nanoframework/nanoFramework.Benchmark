@@ -84,11 +84,14 @@ Output:
 
 ```text
 Console export: CompareObjectTypesBenchmark benchmark class.
+
+| -------------------------------------------------------------------- |
 | MethodName                 | ItterationCount | Mean  | Min   | Max   |
 | -------------------------------------------------------------------- |
 | CompareByString            | 10              | 10 ms | 10 ms | 10 ms |
 | CompareUsingTypeofIf       | 10              | 3 ms  | 0 ms  | 10 ms |
 | CompareUsingTypeofIfReturn | 10              | 5 ms  | 0 ms  | 10 ms |
+| -------------------------------------------------------------------- |
 ```
 
 ## How to run .NET **nanoFramework** Benchmark
@@ -156,11 +159,14 @@ Note, that benchmark method must be public and without parameters.
 BaselineAttribute is used to specify which method should be considered as baseline for calculation. Add new column "Ratio" to output.
 ```text
 Console export: CompareObjectTypesBenchmark benchmark class.
+
+| ------------------------------------------------------------------------------ |
 | MethodName                 | ItterationCount | Mean   | Ratio  | Min   | Max   |
 | ------------------------------------------------------------------------------ |
 | CompareByString            | 100             | 10 ms  | 1.0    | 10 ms | 10 ms |
 | CompareUsingTypeofIf       | 100             | 5.9 ms | 0.5900 | 0 ms  | 10 ms |
 | CompareUsingTypeofIfReturn | 100             | 5.5 ms | 0.5500 | 0 ms  | 10 ms |
+| ------------------------------------------------------------------------------ |
 ```
 
 ### Parsers
@@ -179,11 +185,14 @@ Output example
 
 ```text
 Console export: CompareObjectTypesBenchmark benchmark class.
+
+| -------------------------------------------------------------------- |
 | MethodName                 | ItterationCount | Mean   | Min  | Max   |
 | -------------------------------------------------------------------- |
 | CompareByString            | 100             | 8.9 ms | 0 ms | 10 ms |
 | CompareUsingTypeofIf       | 100             | 4.1 ms | 0 ms | 10 ms |
 | CompareUsingTypeofIfReturn | 100             | 4.2 ms | 0 ms | 10 ms |
+| -------------------------------------------------------------------- |
 ```
 
 #### CsvParser
@@ -220,5 +229,6 @@ This project has adopted the code of conduct defined by the Contributor Covenant
 For more information see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct).
 
 ### .NET Foundation
+
 
 This project is supported by the [.NET Foundation](https://dotnetfoundation.org).

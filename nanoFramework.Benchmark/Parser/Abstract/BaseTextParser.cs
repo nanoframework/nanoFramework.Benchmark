@@ -53,6 +53,8 @@ namespace nanoFramework.Benchmark.Parser.Abstract
 
         protected abstract string GetRow(SingleBenchmarkResult item, MethodInfo[] dataToDisplay, int rowIndex);
 
+        protected abstract string GetRowSeparator();
+
         protected virtual void PrintLine(string value)
         {
             Console.WriteLine(value);
@@ -69,14 +71,20 @@ namespace nanoFramework.Benchmark.Parser.Abstract
             PrintLine(string.Empty);
             PrintLine(string.Empty);
             PrintLine(GetParserName(benchmarkResult));
+            PrintLine(string.Empty);
 
             var dataToDisplay = benchmarkResult.GetDataToDisplay();
+
+            PrintLine(GetRowSeparator());
+
             PrintLine(GetHeader(dataToDisplay));
 
             for (int i = 0; i < benchmarkResult.MethodResults.Length; i++)
             {
                 PrintLine(GetRow(benchmarkResult, dataToDisplay, i));
             }
+
+            PrintLine(GetRowSeparator());
         }
     }
 }

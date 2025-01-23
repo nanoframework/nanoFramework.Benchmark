@@ -15,12 +15,15 @@ namespace nanoFramework.Benchmark.Parser
         private const string ConsoleTableSeparator = "|";
         private readonly object lockObject = new ();
         private int[] columnsSize;
+        private string _tableSeparator;
 
         public override void Parse(SingleBenchmarkResult benchmarkResult)
         {
             lock (lockObject)
             {
                 columnsSize = CalculateColumnSize(benchmarkResult);
+                _tableSeparator = null;
+
                 base.Parse(benchmarkResult);
             }
         }
@@ -63,7 +66,10 @@ namespace nanoFramework.Benchmark.Parser
         protected override string GetHeader(MethodInfo[] dataToDisplay)
         {
             var stringBuilder = new StringBuilder();
+
+            // append column headers
             stringBuilder.Append($"{ConsoleTableSeparator}");
+
             for (int i = 0; i < dataToDisplay.Length; i++)
             {
                 var item = dataToDisplay[i];
@@ -73,18 +79,10 @@ namespace nanoFramework.Benchmark.Parser
                 stringBuilder.Append($" {ConsoleTableSeparator}");
             }
 
-            // Create row after header, seperating rows and headers
-            var headerLength = stringBuilder.Length;
             stringBuilder.AppendLine();
-            stringBuilder.Append($"{ConsoleTableSeparator} ");
 
-            // -4 characters = '| ' + ' |'
-            for (int i = 0; i < headerLength - 4; i++)
-            {
-                stringBuilder.Append("-");
-            }
-
-            stringBuilder.Append($" {ConsoleTableSeparator}");
+            // append table separator to end the header
+            stringBuilder.Append(GetRowSeparator());
 
             return stringBuilder.ToString();
         }
@@ -103,6 +101,35 @@ namespace nanoFramework.Benchmark.Parser
             }
 
             return stringBuilder.ToString();
+        }
+
+        protected override string GetRowSeparator()
+        {
+            if (_tableSeparator == null)
+            {
+                StringBuilder stringBuilder = new ();
+
+                // compute total header length from all columns
+                int headerLength = 0;
+                for (int i = 0; i < columnsSize.Length; i++)
+                {
+                    // account for the space between columns and the separator
+                    headerLength += columnsSize[i] + 3;
+                }
+
+                stringBuilder.Append($"{ConsoleTableSeparator} ");
+
+                // account for the separator and the space at the end (twice)
+                for (int i = 0; i < headerLength - 3; i++)
+                {
+                    stringBuilder.Append("-");
+                }
+
+                stringBuilder.Append($" {ConsoleTableSeparator}");
+                _tableSeparator = stringBuilder.ToString();
+            }
+
+            return _tableSeparator;
         }
     }
 }
