@@ -54,5 +54,10 @@ namespace nanoFramework.Benchmark.Parser
 
             return stringBuilder.ToString();
         }
+
+        protected override string GetRowSeparator()
+        {
+            return string.Empty;
+        }
     }
 }
